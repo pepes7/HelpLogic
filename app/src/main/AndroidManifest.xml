@@ -9,11 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
-        <activity android:screenOrientation="portrait" android:name=".EscolhaActivity"></activity>
-        <activity android:screenOrientation="portrait" android:name=".LoginActivity" />
-        <activity android:screenOrientation="portrait" android:name=".CadastroActivity" />
-        <activity android:screenOrientation="portrait" android:name=".MainActivity">
+        <activity android:name=".Aprender"></activity>
+        <activity
+            android:name=".EscolhaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CadastroActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

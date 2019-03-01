@@ -9,7 +9,7 @@
     tools:layout_editor_absoluteY="25dp">
 
     <Button
-        android:id="@+id/botaoEntrar"
+        android:id="@+id/botaoLogar"
 
         android:layout_width="170dp"
         android:layout_height="49dp"
@@ -46,7 +46,7 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botaoEntrar" />
+        app:layout_constraintTop_toBottomOf="@+id/botaoLogar" />
 
     <ImageView
         android:id="@+id/imageView4"

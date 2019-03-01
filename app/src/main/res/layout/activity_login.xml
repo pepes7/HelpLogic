@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/logo" />
 
     <Button
-        android:id="@+id/botaoEntrar"
+        android:id="@+id/botaoLogar"
 
         android:layout_width="115dp"
         android:layout_height="50dp"
