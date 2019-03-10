@@ -1,0 +1,13 @@
+# ChangeLog
+
+# 10/03/2019
+1. Alterado o hint do EditText5 (Login -> Email)
+2. Incluído a Classe FirebaseCongfig para servir como Factory para o Firebase
+3. Modificado nome dos IDs dos EditText do layout "activity_cadastro.xml"
+4. Adicionado espaçamento de 24dp para os mesmos EditTexts com IDs modificados.
+5. Criado o Model do usuário (Padrão MVC)
+6. Criados os pacotes Activity, Model, Config, para respeitar o padrão MVC.
+
+# INFO
+Para que as implementações de Firebase funcione, veja a videoaulas de 167 - 177.
+Ou veja a documentação disponível em: https://firebase.google.com/docs/android/setup?hl=pt-br
