@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EscolhaActivity">
+    tools:context=".activity.EscolhaActivity">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -34,8 +34,8 @@
     <android.support.v7.widget.CardView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         app:cardBackgroundColor="@color/color_cadViewBlue"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
@@ -44,7 +44,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
-            android:layout_width="384dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -52,7 +52,7 @@
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="NÍVEL 1:"
+                android:text="NÍVEL 1"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_dark"
                 android:textStyle="bold" />
@@ -77,8 +77,8 @@
         android:id="@+id/cardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="80dp"
         app:cardBackgroundColor="@color/color_cardview"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -87,7 +87,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
-            android:layout_width="384dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -95,7 +95,7 @@
                 android:id="@+id/textView9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="NÍVEL 2:"
+                android:text="NÍVEL 2"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_dark"
                 android:textStyle="bold" />
