@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "674914952863",
+    "firebase_url": "https://helplogic-56581.firebaseio.com",
+    "project_id": "helplogic-56581",
+    "storage_bucket": "helplogic-56581.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:674914952863:android:be926efa3ebd3fd6",
+        "android_client_info": {
+          "package_name": "com.example.helplogic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "674914952863-sal7odl9kc1lp5spj6puu1u1ck73rm28.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.helplogic",
+            "certificate_hash": "29db4b4a836a6a84794c4230c408159ed538b534"
+          }
+        },
+        {
+          "client_id": "674914952863-07aq8jvloiksl0ih8o2a1u8gsallbren.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLeboKTbpUb94PF8qo9IFBy9l3wV5s5jk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "674914952863-07aq8jvloiksl0ih8o2a1u8gsallbren.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
