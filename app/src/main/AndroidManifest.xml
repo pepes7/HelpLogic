@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".activity.Aprender"></activity>
+        <activity android:name=".activity.ExercitarLogicaActivity"></activity>
+        <activity android:name=".activity.AprenderLogicaActivity" />
+        <activity android:name=".activity.AprenderOuExercitarLogicaActivity" />
+        <activity android:name=".activity.Aprender" />
         <activity
             android:name=".activity.EscolhaActivity"
             android:screenOrientation="portrait" />
