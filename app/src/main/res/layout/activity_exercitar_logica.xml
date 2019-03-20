@@ -56,6 +56,7 @@
         android:layout_marginEnd="24dp"
         android:background="@drawable/button_cardview"
         android:drawableEnd="@drawable/arrow"
+        android:onClick="selecao"
         android:text="     Estruturas de Seleção"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"

@@ -41,6 +41,7 @@
         android:layout_marginEnd="24dp"
         android:background="@drawable/buttonazul"
         android:drawableEnd="@drawable/arrow"
+        android:onClick="intro"
         android:text="     Introdução e Noções de Lógica"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"

@@ -21,6 +21,6 @@ public class AprenderOuExercitarLogicaActivity extends AppCompatActivity {
     }
 
     public void exercitar(View view) {
-
+        startActivity(new Intent(getApplicationContext(), ExercitarLogicaActivity.class));
     }
 }
