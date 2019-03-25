@@ -9,7 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".activity.Aprender"></activity>
+        <activity android:name=".activity.Exercicio4Activity"></activity>
+        <activity android:name=".activity.Exercicio3Activity" />
+        <activity android:name=".activity.Exercicio1Activity" />
+        <activity android:name=".activity.OQueEAlgoritimoActivity" />
+        <activity android:name=".activity.OQueELogicaDeProgramacaoActivity" />
+        <activity android:name=".activity.ExisteLogicaNoDiaADiaActivity" />
+        <activity android:name=".activity.OQueELogicaActivity" />
+        <activity android:name=".activity.NocoesDeLogicaActivity" />
+        <activity android:name=".activity.Exercicio2Activity" />
+        <activity android:name=".activity.ExerciciosLogicaSelecaoActivity" />
+        <activity android:name=".activity.ExercitarLogicaActivity" />
+        <activity android:name=".activity.AprenderLogicaActivity" />
+        <activity android:name=".activity.AprenderOuExercitarLogicaActivity" />
+        <activity android:name=".activity.Aprender" />
         <activity
             android:name=".activity.EscolhaActivity"
             android:screenOrientation="portrait" />
