@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.Exercicio1Activity">
+    tools:context=".activity.ExercicioRepeticao2">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView15"
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
-            android:text="Notas de um aluno"
+            android:text="Série  de Fibonacci"
             android:textAlignment="center"
             android:textSize="30sp" />
     </android.support.v7.widget.CardView>
@@ -35,10 +35,11 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
-        android:text="Faça um programa que receba quatro notas de um aluno, calcule e imprima a média aritmética das notas e a mensagem de aprovado para média superior ou igual a 7.0 ou a mensagem de reprovado para média inferior a 7.0. "
+        android:text=" Fazer um programa para achar a série de Fibonacci dos n primeiros termos: 1  1  2  3  5  8  13 ... "
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView15" />
+
 
 </android.support.constraint.ConstraintLayout>

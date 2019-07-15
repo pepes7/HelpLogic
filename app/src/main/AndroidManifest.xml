@@ -5,11 +5,21 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_cerebro"
-        android:label="HelhpLogic!"
+        android:label="HelpLogic!"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".activity.Exercicio4Activity"></activity>
+        <activity android:name=".activity.ExercicioLogica4"></activity>
+        <activity android:name=".activity.ExercicioLogica3" />
+        <activity android:name=".activity.ExercicioLogica2" />
+        <activity android:name=".activity.ExercicioLogica1" />
+        <activity android:name=".activity.ExercicioLogica" />
+        <activity android:name=".activity.ExercicioRepeticao4" />
+        <activity android:name=".activity.ExercicioRepeticao3" />
+        <activity android:name=".activity.ExercicioRepeticao2" />
+        <activity android:name=".activity.ExercicioRepeticao1" />
+        <activity android:name=".activity.ExerciciosLogicaRepeticao" />
+        <activity android:name=".activity.Exercicio4Activity" />
         <activity android:name=".activity.Exercicio3Activity" />
         <activity android:name=".activity.Exercicio1Activity" />
         <activity android:name=".activity.OQueEAlgoritimoActivity" />

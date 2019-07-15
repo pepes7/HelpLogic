@@ -43,6 +43,7 @@
         android:drawableEnd="@drawable/arrow"
         android:text="     Lógica e Expressões\n     Aritiméticas"
         android:textAlignment="viewStart"
+        android:onClick="logica"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
@@ -72,6 +73,7 @@
         android:layout_marginEnd="24dp"
         android:background="@drawable/button_cardview"
         android:drawableEnd="@drawable/arrow"
+        android:onClick="repeticao"
         android:text="     Estruturas de Repetição"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"

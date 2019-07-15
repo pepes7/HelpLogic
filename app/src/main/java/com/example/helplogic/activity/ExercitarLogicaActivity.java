@@ -18,4 +18,12 @@ public class ExercitarLogicaActivity extends AppCompatActivity {
     public void selecao(View view) {
         startActivity(new Intent(getApplicationContext(), ExerciciosLogicaSelecaoActivity.class));
     }
+
+    public void repeticao(View view) {
+        startActivity(new Intent(getApplicationContext(), ExerciciosLogicaRepeticao.class));
+    }
+
+    public void logica(View view) {
+        startActivity(new Intent(getApplicationContext(), ExercicioLogica.class));
+    }
 }
