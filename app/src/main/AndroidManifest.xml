@@ -8,33 +8,86 @@
         android:label="HelpLogic!"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".activity.ExercicioLogica4"></activity>
-        <activity android:name=".activity.ExercicioLogica3" />
-        <activity android:name=".activity.ExercicioLogica2" />
-        <activity android:name=".activity.ExercicioLogica1" />
-        <activity android:name=".activity.ExercicioLogica" />
-        <activity android:name=".activity.ExercicioRepeticao4" />
-        <activity android:name=".activity.ExercicioRepeticao3" />
-        <activity android:name=".activity.ExercicioRepeticao2" />
-        <activity android:name=".activity.ExercicioRepeticao1" />
-        <activity android:name=".activity.ExerciciosLogicaRepeticao" />
-        <activity android:name=".activity.Exercicio4Activity" />
-        <activity android:name=".activity.Exercicio3Activity" />
-        <activity android:name=".activity.Exercicio1Activity" />
-        <activity android:name=".activity.OQueEAlgoritimoActivity" />
-        <activity android:name=".activity.OQueELogicaDeProgramacaoActivity" />
-        <activity android:name=".activity.ExisteLogicaNoDiaADiaActivity" />
-        <activity android:name=".activity.OQueELogicaActivity" />
-        <activity android:name=".activity.NocoesDeLogicaActivity" />
-        <activity android:name=".activity.Exercicio2Activity" />
-        <activity android:name=".activity.ExerciciosLogicaSelecaoActivity" />
-        <activity android:name=".activity.ExercitarLogicaActivity" />
-        <activity android:name=".activity.AprenderLogicaActivity" />
-        <activity android:name=".activity.AprenderOuExercitarLogicaActivity" />
-        <activity android:name=".activity.Aprender" />
+        android:theme="@style/AppTheme">
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.PerfilActivity" />
         <activity
-            android:name=".activity.EscolhaActivity"
+            android:name=".activity.HomeActivity"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".activity.ExercicioLogica4"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ExercicioLogica3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ExercicioLogica2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ExercicioLogica1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ExercicioLogica"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ExercicioRepeticao4"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ExercicioRepeticao3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ExercicioRepeticao2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ExercicioRepeticao1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ExerciciosLogicaRepeticao"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.Exercicio4Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.Exercicio3Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.Exercicio1Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.OQueEAlgoritimoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.OQueELogicaDeProgramacaoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ExisteLogicaNoDiaADiaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.OQueELogicaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.NocoesDeLogicaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.Exercicio2Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ExerciciosLogicaSelecaoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ExercitarLogicaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AprenderLogicaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AprenderOuExercitarLogicaActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.LoginActivity"
@@ -45,11 +98,7 @@
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

@@ -7,4 +7,7 @@
     <color name="color_cadViewBlue">#7DC2E2</color>
     <color name="Exercicio">#A687CC</color>
     <color name="branco">#FFFFFF</color>
+    <color name="preto">#000000</color>
+    <color name = "appAzul"> #4682B4</color>
+
 </resources>

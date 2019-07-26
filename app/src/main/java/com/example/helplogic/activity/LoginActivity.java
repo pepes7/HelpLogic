@@ -47,6 +47,9 @@ public class LoginActivity extends AppCompatActivity {
                 logar();
             }
         });
+
+        //retira a action bar
+        getSupportActionBar().hide();
     }
 
     /**
@@ -92,7 +95,10 @@ public class LoginActivity extends AppCompatActivity {
 
                     // Verifica se foi possível realizar o login.
                     if (task.isSuccessful()) {
-                        Intent intent = new Intent(getApplicationContext(),EscolhaActivity.class);
+                        //troca para activity home e bloqueia o botão voltar
+                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                     } else {
                         try {

@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.helplogic.R;
@@ -21,6 +23,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CadastroActivity extends AppCompatActivity {
 
@@ -30,6 +35,7 @@ public class CadastroActivity extends AppCompatActivity {
     private EditText editTextEmail;
     private EditText editTextSenha;
     private EditText editTextConfirmarSenha;
+    private RadioGroup rdGroup;
 
     private Button buttonConcluir;
 
@@ -44,6 +50,8 @@ public class CadastroActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextSenha = findViewById(R.id.editTextSenhaLogin);
         editTextConfirmarSenha = findViewById(R.id.editTextConfimarSenha);
+        rdGroup = findViewById(R.id.rdGroup);
+
 
         buttonConcluir = findViewById(R.id.botaoConcluir);
         buttonConcluir.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +60,10 @@ public class CadastroActivity extends AppCompatActivity {
                 cadastrarUsuario();
             }
         });
+
+
+        getSupportActionBar().hide();
+
 
     }
 
@@ -104,10 +116,17 @@ public class CadastroActivity extends AppCompatActivity {
             dialogFragment.show(transaction, "");
 
             // Cria uma nova instância de usuário.
-            Usuario usuario = new Usuario();
+            final Usuario usuario = new Usuario();
             usuario.setNome(nome);
             usuario.setEmail(email);
             usuario.setSenha(senha);
+
+            //Verifica qual RadioButton está selecionado
+            int id = rdGroup.getCheckedRadioButtonId();
+            RadioButton selectedButton = findViewById(id);
+            //Seta o sexo ao Objeto
+            usuario.setSexo(selectedButton.getText().toString());
+
 
             // Obtém a instência de autenticação do usuário e cria um novo usuário se o mesmo não existir.
             auth = FirebaseConfig.getFirebaseAuth();
@@ -119,6 +138,9 @@ public class CadastroActivity extends AppCompatActivity {
                     dialogFragment.dismiss();
 
                     if (task.isSuccessful()) {
+                        FirebaseUser userFirebase = task.getResult().getUser();
+                        usuario.setId(userFirebase.getUid());
+                        usuario.salvar();
                         Toast.makeText(CadastroActivity.this, "Usuário cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
                         finish();
                     } else {
