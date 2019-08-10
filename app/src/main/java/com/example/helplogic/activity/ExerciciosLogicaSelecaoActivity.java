@@ -13,6 +13,9 @@ public class ExerciciosLogicaSelecaoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercicios_logica_selecao);
+
+        //coloca o botão de voltar para activity anterior
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void ex1(View view) {

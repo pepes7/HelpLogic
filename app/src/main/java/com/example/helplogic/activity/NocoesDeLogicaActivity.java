@@ -13,6 +13,9 @@ public class NocoesDeLogicaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nocoes_de_logica);
+
+        //coloca o botão de voltar para activity anterior
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void oQueLogica(View view) {

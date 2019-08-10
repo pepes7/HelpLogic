@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.helplogic">
 
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true" /> <!-- pedir permissao para utilizar recursos da camera e galeria -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_cerebro"
@@ -9,31 +15,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".MaisExerciciosActivity"></activity>
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.PerfilActivity" />
+        <activity
+            android:name=".activity.PerfilActivity"
+            android:parentActivityName=".activity.HomeActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name=".activity.ExercicioLogica4"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.ExercicioLogica3"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.ExercicioLogica2"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.ExercicioLogica1"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activity.ExercicioLogica"
+            android:parentActivityName=".activity.ExercitarLogicaActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.ExercicioRepeticao4"
@@ -49,6 +51,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.ExerciciosLogicaRepeticao"
+            android:parentActivityName=".activity.ExercitarLogicaActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.Exercicio4Activity"
@@ -73,21 +76,22 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.NocoesDeLogicaActivity"
+            android:parentActivityName=".activity.AprenderLogicaActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.Exercicio2Activity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.ExerciciosLogicaSelecaoActivity"
+            android:parentActivityName=".activity.ExercitarLogicaActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.ExercitarLogicaActivity"
+            android:parentActivityName=".activity.HomeActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.AprenderLogicaActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.AprenderOuExercitarLogicaActivity"
+            android:parentActivityName=".activity.HomeActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.LoginActivity"
@@ -97,9 +101,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.MainActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

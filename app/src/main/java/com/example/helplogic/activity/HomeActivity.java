@@ -112,8 +112,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    public void escolheLogica(View view) {
-        startActivity(new Intent(getApplicationContext(), AprenderOuExercitarLogicaActivity.class));
+    public void aprender(View view) {
+        startActivity(new Intent(getApplicationContext(), AprenderLogicaActivity.class));
+    }
+
+    public void exercitar(View view) {
+        startActivity(new Intent(getApplicationContext(), ExercitarLogicaActivity.class));
     }
 
     public void carregarInformacoesNav(){

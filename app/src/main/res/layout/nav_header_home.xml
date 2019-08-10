@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
-    android:background="#DEB887"
+    android:background="@drawable/bg_header"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -18,7 +18,7 @@
         android:layout_height="100dp"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:src="@drawable/ic_cerebro"
+        android:src="@drawable/padrao"
         app:civ_border_color="#5A5454" />
 
     <TextView
@@ -27,12 +27,17 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="@string/nav_header_title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/branco"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/nav_user_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/nav_header_subtitle" />
+        android:layout_width="224dp"
+        android:layout_height="match_parent"
+        android:text="@string/nav_header_subtitle"
+        android:textAlignment="viewStart"
+        android:textColor="@color/branco"
+        android:textSize="12sp" />
 
 </LinearLayout>
