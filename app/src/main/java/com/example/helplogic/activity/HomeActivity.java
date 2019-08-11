@@ -81,6 +81,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             return true;
+        } else if (id == R.id.action_line_chart) {
+            startActivity(new Intent(getApplicationContext(), EstatisticaActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
@@ -98,7 +100,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(getApplicationContext(), PerfilActivity.class);
             startActivity(intent);
 
-        } /*else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_favoritos) {
+            startActivity(new Intent(getApplicationContext(), FavoritosActivity.class));
+        }
+        /*else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_tools) {
 
