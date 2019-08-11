@@ -2,22 +2,13 @@ package com.example.helplogic.model;
 
 public class Exercicios {
 
-    private String id;
     private Boolean favorito;
-    private EstadoExercicio estado;
+    private String estado;
     private String enunciado;
     private String titulo;
 
     public Exercicios(){
 
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public Boolean getFavorito() {
@@ -28,11 +19,11 @@ public class Exercicios {
         this.favorito = favorito;
     }
 
-    public EstadoExercicio getEstadoExercicio() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstadoExercicio(EstadoExercicio estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 

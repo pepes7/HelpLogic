@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.AdapterView;
 
 import com.example.helplogic.R;
 import com.example.helplogic.adapter.AdapterExercicios;
 import com.example.helplogic.config.FirebaseConfig;
+import com.example.helplogic.helper.RecyclerItemClickListener;
 import com.example.helplogic.model.Exercicios;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -45,10 +47,38 @@ public class ExerciciosLogicaRepeticao extends AppCompatActivity {
         recuperarExercicios();
     }
 
-    public void inicializarComponentes(){
+    public void inicializarComponentes() {
         recyclerExercicios = findViewById(R.id.recyclerViewRepeticao);
 
+        // Adicionando evento de click.
+        recyclerExercicios.addOnItemTouchListener(
+                new RecyclerItemClickListener(getApplicationContext(), recyclerExercicios,
+                        new RecyclerItemClickListener.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                Exercicios ex = exercicios.get(position);
+
+                                Intent intent = new Intent(getApplicationContext(), ExercicioActivity.class);
+                                intent.putExtra("titulo", ex.getTitulo());
+                                intent.putExtra("enunciado", ex.getEnunciado());
+                                intent.putExtra("favorito", ex.getFavorito());
+                                intent.putExtra("estado", ex.getEstado());
+
+                                startActivity(intent);
+                            }
+
+                            @Override
+                            public void onLongItemClick(View view, int position) {
+
+                            }
+
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                            }
+                        }));
     }
+
 
     private void recuperarExercicios(){
         exerciciosFirebase.addValueEventListener(new ValueEventListener() {
