@@ -1,7 +1,9 @@
-package com.example.helplogic;
+package com.example.helplogic.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.helplogic.R;
 
 public class MaisExerciciosActivity extends AppCompatActivity {
 
