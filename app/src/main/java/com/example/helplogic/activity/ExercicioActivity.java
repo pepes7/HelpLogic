@@ -1,6 +1,7 @@
 package com.example.helplogic.activity;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -14,8 +15,13 @@ import com.example.helplogic.R;
 import com.example.helplogic.config.FirebaseConfig;
 import com.example.helplogic.model.Exercicios;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Collections;
 
 public class ExercicioActivity extends AppCompatActivity {
 
@@ -25,12 +31,15 @@ public class ExercicioActivity extends AppCompatActivity {
 
     private FirebaseAuth auth =  FirebaseConfig.getFirebaseAuth();
     private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference favoritos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercicio);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        favoritos = referencia.child("usuarios").child(auth.getUid()).child("favoritos");
 
         iniciaExercicios();
         iniciaDados();
@@ -52,10 +61,6 @@ public class ExercicioActivity extends AppCompatActivity {
         exercicios.setEstado(estado);
         exercicios.setId(Integer.parseInt(id));
 
-        if (exercicios.getFavorito()) {
-            MenuItem menuItem = findViewById(R.id.action_favorite);
-            menuItem.setIcon(R.drawable.ic_favorite_white_24dp);
-        }
     }
 
     private void iniciaDados() {
@@ -66,10 +71,35 @@ public class ExercicioActivity extends AppCompatActivity {
         textViewEnunciado.setText(exercicios.getEnunciado());
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.exercicio, menu);
+
+        final MenuItem menuItem = menu.getItem(0);
+        favoritos = referencia.child("usuarios").child(auth.getUid()).child("favoritos");
+        favoritos.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    if(ds.getValue(Exercicios.class).getId().equals(exercicios.getId())) {
+                        menuItem.setIcon(R.drawable.ic_favorite_white_24dp);
+                        exercicios.setFavorito(true);
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
         return true;
     }
 
