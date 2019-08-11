@@ -11,13 +11,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.helplogic.R;
+import com.example.helplogic.config.FirebaseConfig;
 import com.example.helplogic.model.Exercicios;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ExercicioActivity extends AppCompatActivity {
 
     private Exercicios exercicios;
     private TextView textViewTitulo;
     private TextView textViewEnunciado;
+
+    private FirebaseAuth auth =  FirebaseConfig.getFirebaseAuth();
+    private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +43,14 @@ public class ExercicioActivity extends AppCompatActivity {
         String enunciado = data.getString("enunciado");
         String favorito = data.getString("favorito");
         String estado = data.getString("estado");
+        String id = data.getString("id");
 
         exercicios = new Exercicios();
         exercicios.setTitulo(titulo);
         exercicios.setEnunciado(enunciado);
         exercicios.setFavorito(Boolean.parseBoolean(favorito));
         exercicios.setEstado(estado);
+        exercicios.setId(Integer.parseInt(id));
 
         if (exercicios.getFavorito()) {
             MenuItem menuItem = findViewById(R.id.action_favorite);
@@ -76,10 +85,14 @@ public class ExercicioActivity extends AppCompatActivity {
             if (exercicios.getFavorito()) {
                 exercicios.setFavorito(false);
                 item.setIcon(R.drawable.ic_favorite_border_white);
+                DatabaseReference usuario = referencia.child("usuarios").child(auth.getUid());
+                usuario.child("favoritos").child(exercicios.getId().toString()).removeValue();
                 Toast.makeText(this, "Removido dos favoritos", Toast.LENGTH_SHORT).show();
             } else {
                 exercicios.setFavorito(true);
                 item.setIcon(R.drawable.ic_favorite_white_24dp);
+                DatabaseReference usuario = referencia.child("usuarios").child(auth.getUid());
+                usuario.child("favoritos").child(exercicios.getId().toString()).setValue(exercicios);
                 Toast.makeText(this, "Adicionado aos favoritos", Toast.LENGTH_SHORT).show();
             }
         }

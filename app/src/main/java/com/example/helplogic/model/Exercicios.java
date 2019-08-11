@@ -2,6 +2,7 @@ package com.example.helplogic.model;
 
 public class Exercicios {
 
+    private Integer id;
     private Boolean favorito;
     private String estado;
     private String enunciado;
@@ -9,6 +10,14 @@ public class Exercicios {
 
     public Exercicios(){
 
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Boolean getFavorito() {

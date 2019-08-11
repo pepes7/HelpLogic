@@ -63,6 +63,7 @@ public class ExerciciosLogicaSelecaoActivity extends AppCompatActivity {
                                 intent.putExtra("enunciado", ex.getEnunciado());
                                 intent.putExtra("favorito", ex.getFavorito());
                                 intent.putExtra("estado", ex.getEstado());
+                                intent.putExtra("id", ex.getId().toString());
 
                                 startActivity(intent);
                             }

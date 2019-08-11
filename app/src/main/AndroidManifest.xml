@@ -42,29 +42,8 @@
             android:parentActivityName=".activity.ExercitarLogicaActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ExercicioRepeticao4"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.ExercicioRepeticao3"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.ExercicioRepeticao2"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.ExercicioRepeticao1"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activity.ExerciciosLogicaRepeticao"
             android:parentActivityName=".activity.ExercitarLogicaActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.Exercicio4Activity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.Exercicio3Activity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.Exercicio1Activity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.OQueEAlgoritimoActivity"
@@ -81,9 +60,6 @@
         <activity
             android:name=".activity.NocoesDeLogicaActivity"
             android:parentActivityName=".activity.AprenderLogicaActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.Exercicio2Activity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.ExerciciosLogicaSelecaoActivity"
