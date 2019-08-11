@@ -21,6 +21,8 @@
 
     <string name="name">Nome </string>
     <string name="email">Email </string>
+    <string name="lipsum_01p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies elit sed ex mattis aliquet. Phasellus vehicula leo at ex aliquet, sed finibus sem ultricies. Mauris eros turpis, laoreet sit amet nulla vitae, egestas lobortis lorem. Nullam tortor justo, ornare congue purus a, vehicula consectetur ex. Fusce vel ante condimentum enim vestibulum porttitor. Etiam leo dolor, porta vel pellentesque sed, bibendum aliquet quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus gravida, mauris vitae vulputate fermentum, elit erat varius quam, dictum rhoncus nunc urna sit amet sem. Vivamus vestibulum velit ante, et faucibus elit mattis vitae. Duis volutpat leo id ligula tempor, ac lacinia dui finibus. Quisque eget tempor nibh, vitae auctor odio. Sed elementum augue vel ultrices tempus. Donec tempus luctus felis, lacinia molestie arcu. Nulla quis metus dolor.</string>
+    <string name="titulo_da_questao">Titulo da Questao</string>
 
 
 </resources>

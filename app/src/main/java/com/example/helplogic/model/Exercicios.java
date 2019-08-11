@@ -3,8 +3,8 @@ package com.example.helplogic.model;
 public class Exercicios {
 
     private String id;
-    private Boolean favorita;
-    private EstadoExercicio estadoExercicio;
+    private Boolean favorito;
+    private EstadoExercicio estado;
     private String enunciado;
     private String titulo;
 
@@ -20,20 +20,20 @@ public class Exercicios {
         this.id = id;
     }
 
-    public Boolean getFavorita() {
-        return favorita;
+    public Boolean getFavorito() {
+        return favorito;
     }
 
-    public void setFavorita(Boolean favorita) {
-        this.favorita = favorita;
+    public void setFavorito(Boolean favorito) {
+        this.favorito = favorito;
     }
 
     public EstadoExercicio getEstadoExercicio() {
-        return estadoExercicio;
+        return estado;
     }
 
-    public void setEstadoExercicio(EstadoExercicio estadoExercicio) {
-        this.estadoExercicio = estadoExercicio;
+    public void setEstadoExercicio(EstadoExercicio estado) {
+        this.estado = estado;
     }
 
     public String getEnunciado() {

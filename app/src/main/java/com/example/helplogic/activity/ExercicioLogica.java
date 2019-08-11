@@ -36,7 +36,7 @@ public class ExercicioLogica extends AppCompatActivity {
         //coloca o botão de voltar para activity anterior
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //configurações iniciais
-        exerciciosFirebase = FirebaseConfig.getFirebaseDatabase().child("exercicios");
+        exerciciosFirebase = FirebaseConfig.getFirebaseDatabase().child("exercicios").child("logica");
 
         inicializarComponentes();
         recyclerExercicios.setLayoutManager(new LinearLayoutManager(this));
