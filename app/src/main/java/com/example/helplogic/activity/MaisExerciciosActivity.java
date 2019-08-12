@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.example.helplogic.R;
 
-public class Exercicio2Activity extends AppCompatActivity {
+public class MaisExerciciosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_exercicio2);
+        setContentView(R.layout.activity_mais_exercicios);
     }
 }

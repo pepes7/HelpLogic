@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.helplogic">
 
     <uses-feature
@@ -15,9 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MaisExerciciosActivity"></activity>
+        <activity android:name=".activity.EstatisticaActivity"></activity>
+        <activity android:name=".activity.FavoritosActivity" />
+        <activity android:name=".activity.ExercicioActivity" />
+        <activity android:name=".activity.MaisExerciciosActivity" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".activity.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,29 +42,8 @@
             android:parentActivityName=".activity.ExercitarLogicaActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ExercicioRepeticao4"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.ExercicioRepeticao3"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.ExercicioRepeticao2"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.ExercicioRepeticao1"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activity.ExerciciosLogicaRepeticao"
             android:parentActivityName=".activity.ExercitarLogicaActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.Exercicio4Activity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.Exercicio3Activity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.Exercicio1Activity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.OQueEAlgoritimoActivity"
@@ -77,9 +60,6 @@
         <activity
             android:name=".activity.NocoesDeLogicaActivity"
             android:parentActivityName=".activity.AprenderLogicaActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.Exercicio2Activity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.ExerciciosLogicaSelecaoActivity"
@@ -101,7 +81,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
