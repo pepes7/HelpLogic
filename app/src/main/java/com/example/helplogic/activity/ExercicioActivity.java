@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.helplogic.R;
 import com.example.helplogic.config.FirebaseConfig;
+import com.example.helplogic.model.Escore;
+import com.example.helplogic.model.EstadoExercicio;
 import com.example.helplogic.model.Exercicios;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -32,6 +35,7 @@ public class ExercicioActivity extends AppCompatActivity {
     private FirebaseAuth auth =  FirebaseConfig.getFirebaseAuth();
     private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
     private DatabaseReference favoritos;
+    private DatabaseReference respondidos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +44,27 @@ public class ExercicioActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         favoritos = referencia.child("usuarios").child(auth.getUid()).child("favoritos");
+        respondidos = referencia.child("usuarios").child(auth.getUid()).child("respondidos");
 
         iniciaExercicios();
         iniciaDados();
+    }
+
+
+
+    public void pular(View view) {
+        exercicios.setEstado(EstadoExercicio.PULOU.toString());
+        respondidos.child(exercicios.getId().toString()).setValue(exercicios);
+    }
+
+    public void acertei(View view) {
+        exercicios.setEstado(EstadoExercicio.ACERTOU.toString());
+        respondidos.child(exercicios.getId().toString()).setValue(exercicios);
+    }
+
+    public void errei(View view) {
+        exercicios.setEstado(EstadoExercicio.ERROU.toString());
+        respondidos.child(exercicios.getId().toString()).setValue(exercicios);
     }
 
     private void iniciaExercicios() {
@@ -60,7 +82,6 @@ public class ExercicioActivity extends AppCompatActivity {
         exercicios.setFavorito(Boolean.parseBoolean(favorito));
         exercicios.setEstado(estado);
         exercicios.setId(Integer.parseInt(id));
-
     }
 
     private void iniciaDados() {
@@ -78,6 +99,7 @@ public class ExercicioActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.exercicio, menu);
 
+        // Verifica se é um favorito ou não
         final MenuItem menuItem = menu.getItem(0);
         favoritos = referencia.child("usuarios").child(auth.getUid()).child("favoritos");
         favoritos.addValueEventListener(new ValueEventListener() {

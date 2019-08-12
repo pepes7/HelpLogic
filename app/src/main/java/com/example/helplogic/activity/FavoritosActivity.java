@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.TextView;
 
 import com.example.helplogic.R;
 import com.example.helplogic.adapter.AdapterExercicios;
@@ -34,6 +35,8 @@ public class FavoritosActivity extends AppCompatActivity {
     private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
     private DatabaseReference favoritos;
 
+    private TextView textViewFavoritos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,8 @@ public class FavoritosActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         favoritos = referencia.child("usuarios").child(auth.getUid()).child("favoritos");
+
+        textViewFavoritos = findViewById(R.id.textViewFavoritos);
 
         inicializarComponentes();
         recyclerExercicios.setLayoutManager(new LinearLayoutManager(this));
@@ -95,6 +100,12 @@ public class FavoritosActivity extends AppCompatActivity {
 
                 Collections.reverse(exercicios);
                 adapterExercicios.notifyDataSetChanged();
+
+                if (exercicios.isEmpty()) {
+                    textViewFavoritos.setText("Nenhum Exercicio Favorito");
+                } else {
+                    textViewFavoritos.setText("Exercícios Favoritos");
+                }
             }
 
             @Override
