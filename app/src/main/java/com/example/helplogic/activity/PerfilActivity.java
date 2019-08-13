@@ -1,6 +1,7 @@
 package com.example.helplogic.activity;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,17 +14,21 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.bumptech.glide.Glide;
 import com.example.helplogic.R;
 import com.example.helplogic.config.FirebaseConfig;
 import com.example.helplogic.helper.Permissao;
 import com.example.helplogic.model.Usuario;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,6 +38,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
+
+import java.io.ByteArrayOutputStream;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -49,6 +58,12 @@ public class PerfilActivity extends AppCompatActivity {
     private static final int SELECAO_GALERIA = 200;
     private CircleImageView imagemPerfil;
     private StorageReference storageReference;
+    private Usuario user;
+    private  Bitmap imagem = null;
+    private DatabaseReference databaseReference = FirebaseConfig.getFirebaseDatabase().child("usuarios");
+    private ProgressDialog dialogData;
+    private ProgressBar progressImage;
+
 
 
     private String[] permisssoes = new String[]{
@@ -90,8 +105,20 @@ public class PerfilActivity extends AppCompatActivity {
 
         Permissao.validarPermissao(permisssoes,this, 1);
 
+        //firebase storage
+        storageReference = FirebaseConfig.getFirebaseStorage();
+
+        user = new Usuario();
+        imagemPerfil = findViewById(R.id.imageProfile);
+        progressImage = findViewById(R.id.progressImage);
+
         getSupportActionBar().setTitle("Editar perfil");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        dialogData = ProgressDialog.show(this,
+                "",
+                "Recuperando dados",
+                true);
 
 
 
@@ -112,12 +139,12 @@ public class PerfilActivity extends AppCompatActivity {
                 rbFemin = findViewById(R.id.radioFem);
 
                 //recupera os dados do no e coloca no objeto usuario
-                Usuario user = dataSnapshot.getValue(Usuario.class);
+                 Usuario u = dataSnapshot.getValue(Usuario.class);
 
-                nome.setText(user.getNome());
-                email.setText(user.getEmail());
+                nome.setText(u.getNome());
+                email.setText(u.getEmail());
 
-                if(user.getSexo().equals("Masculino")){
+                if(u.getSexo().equals("Masculino")){
                     rbMasc.setChecked(true);
                     rbFemin.setChecked(false);
 
@@ -126,6 +153,12 @@ public class PerfilActivity extends AppCompatActivity {
                     rbMasc.setChecked(false);
                 }
 
+                user.setNome(u.getNome());
+                user.setEmail(u.getEmail());
+                user.setId(u.getId());
+                user.setFoto(u.getFoto());
+                user.setSenha(u.getSenha());
+                user.setSexo(u.getSexo());
 
             }
 
@@ -142,6 +175,34 @@ public class PerfilActivity extends AppCompatActivity {
                 mudarFoto();
             }
         });
+
+        final StorageReference imagemRef = storageReference
+                .child("imagens")
+                .child("perfil")
+                .child(auth.getUid())
+                .child("perfil.jpeg");
+
+        imagemRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri downloadUrl) {
+                Picasso.get()
+                        .load(downloadUrl.toString())
+                        .into(imagemPerfil);
+
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                final Bitmap nullImage = BitmapFactory.decodeResource(getResources(), R.drawable.padrao);
+                imagemPerfil.setImageBitmap(nullImage);
+            }
+        });
+
+        //Fecha a barra de progresso
+        dialogData.dismiss();
+
+
     }
 
     public void mudarFoto(){
@@ -189,7 +250,7 @@ public class PerfilActivity extends AppCompatActivity {
         imagemPerfil = findViewById(R.id.imageProfile);
 
         if(resultCode == RESULT_OK){
-            Bitmap imagem = null;
+
 
             try{
                 switch(requestCode){
@@ -203,11 +264,77 @@ public class PerfilActivity extends AppCompatActivity {
                 }
 
                 if( imagem != null){
-                    imagemPerfil.setImageBitmap(imagem);
+                    //recuperar dados da imagem para o firebase
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+                    progressImage.setVisibility(View.VISIBLE);
+                    imagem.compress(Bitmap.CompressFormat.JPEG, 70, baos);
+                    byte[] dadosImagem = baos.toByteArray();
+
+                    //Salvar no Firebase
+                    final StorageReference imagemRef = storageReference
+                            .child("imagens")
+                            .child("perfil")
+                            .child(auth.getUid())
+                            .child("perfil.jpeg");
+
+                    final UploadTask uploadTask = imagemRef.putBytes(dadosImagem);
+                    uploadTask.addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            //Se houve erro no upload da imageFile
+                            Toast.makeText(PerfilActivity.this, "Erro ao carregar a foto", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot){
+                            //Se o upload da imageFile foi realizado com sucesso
+                            imagemRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri downloadUrl) {
+                                    user.setFoto(downloadUrl.toString());
+                                    imagemPerfil.setImageBitmap(imagem);
+
+                                    Toast.makeText(PerfilActivity.this, "Foto alterada com sucesso!", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                           //Seta a visibilidade como invisível
+                            progressImage.setVisibility(View.GONE);
+                        }
+                    });
                 }
             }catch (Exception e){
                 e.printStackTrace();
             }
         }
     }
+    public void save(){
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Usuario u = new Usuario();
+                u.setEmail(user.getEmail());
+                u.setNome(user.getNome());
+                u.setSexo(user.getSexo());
+                u.setSenha(user.getSenha());
+                u.setId(user.getId());
+                u.setFoto(user.getFoto());
+
+                databaseReference.child(user.getId()).setValue(u);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 }
+
+
+
+
+
+

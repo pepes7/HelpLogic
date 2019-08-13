@@ -1,8 +1,12 @@
 package com.example.helplogic.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -18,18 +22,26 @@ import android.widget.TextView;
 import com.example.helplogic.R;
 import com.example.helplogic.config.FirebaseConfig;
 import com.example.helplogic.model.Usuario;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private FirebaseAuth auth =  FirebaseConfig.getFirebaseAuth();
     private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
     private TextView nome;
     private TextView email;
+    private CircleImageView imagemPerfil;
+    private StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +57,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        imagemPerfil = findViewById(R.id.imgPerfil);
+        storageReference = FirebaseConfig.getFirebaseStorage();
 
         carregarInformacoesNav();
     }
@@ -148,6 +163,30 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+
+        final StorageReference imagemRef = storageReference
+                .child("imagens")
+                .child("perfil")
+                .child(auth.getUid())
+                .child("perfil.jpeg");
+
+        imagemRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri downloadUrl){
+                imagemPerfil = findViewById(R.id.imgPerfil);
+                Picasso.get()
+                        .load(downloadUrl.toString())
+                        .into(imagemPerfil);
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                imagemPerfil = findViewById(R.id.imgPerfil);
+                final Bitmap nullImage = BitmapFactory.decodeResource(getResources(), R.drawable.padrao);
+                imagemPerfil.setImageBitmap(nullImage);
             }
         });
 
