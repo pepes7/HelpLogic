@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardViewTituloConteudo">
 
         <TextView
-            android:id="@+id/textViewConteudo"
+            android:id="@+id/textViewTextoConteudo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/lipsum_01p"
