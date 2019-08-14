@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.example.helplogic.R;
 
-public class OQueELogicaDeProgramacaoActivity extends AppCompatActivity {
+public class ConteudoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_oque_elogica_de_programacao);
+        setContentView(R.layout.activity_conteudo);
     }
 }

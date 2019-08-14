@@ -22,4 +22,12 @@ public class AprenderLogicaActivity extends AppCompatActivity {
     public void intro(View view) {
         startActivity(new Intent(getApplicationContext(), NocoesDeLogicaActivity.class));
     }
+
+    public void topicosPreliminares(View view) {
+        startActivity(new Intent(getApplicationContext(), TopicosPreliminaresActivity.class));
+    }
+
+    public void estruturaControle(View view) {
+        startActivity(new Intent(getApplicationContext(), EstruturaControleActivity.class));
+    }
 }

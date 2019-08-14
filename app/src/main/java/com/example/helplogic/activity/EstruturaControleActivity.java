@@ -5,11 +5,14 @@ import android.os.Bundle;
 
 import com.example.helplogic.R;
 
-public class OQueEAlgoritimoActivity extends AppCompatActivity {
+public class EstruturaControleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_oque_ealgoritimo);
+        setContentView(R.layout.activity_estrutura_controle);
+
+        //coloca o botão de voltar para activity anterior
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

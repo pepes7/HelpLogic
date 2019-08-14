@@ -5,11 +5,14 @@ import android.os.Bundle;
 
 import com.example.helplogic.R;
 
-public class OQueELogicaActivity extends AppCompatActivity {
+public class TopicosPreliminaresActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_oque_elogica);
+        setContentView(R.layout.activity_topicos_preliminares);
+
+        //coloca o botão de voltar para activity anterior
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

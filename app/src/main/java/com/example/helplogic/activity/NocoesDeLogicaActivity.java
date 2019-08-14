@@ -17,20 +17,4 @@ public class NocoesDeLogicaActivity extends AppCompatActivity {
         //coloca o botão de voltar para activity anterior
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
-    public void oQueLogica(View view) {
-        startActivity(new Intent(getApplicationContext(), OQueELogicaActivity.class));
-    }
-
-    public void existe(View view) {
-        startActivity(new Intent(getApplicationContext(), ExisteLogicaNoDiaADiaActivity.class));
-    }
-
-    public void oQueAlgoritimo(View view) {
-        startActivity(new Intent(getApplicationContext(), OQueEAlgoritimoActivity.class));
-    }
-
-    public void oQueLogicaProgramacao(View view) {
-        startActivity(new Intent(getApplicationContext(), OQueELogicaDeProgramacaoActivity.class));
-    }
 }

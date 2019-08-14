@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.NocoesDeLogicaActivity">
+    tools:context=".activity.EstruturaControleActivity">
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/textView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="sans-serif-black"
-        android:text="Introdução e Noções de Lógica"
+        android:text="Estruturas de Controle"
         android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/imageView2"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginStart="8dp"
@@ -30,11 +30,11 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:srcCompat="@drawable/cerebro_meditando_feliz" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerViewNocoesLogica"
+        android:id="@+id/recyclerViewEstruturasControle"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -44,7 +44,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 </android.support.constraint.ConstraintLayout>

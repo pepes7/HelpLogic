@@ -26,6 +26,7 @@
     <string name="estat_stica">Estatística</string>
     <string name="favorito">Favorito</string>
     <string name="exercicios_favoritos">Exercícios Favoritos</string>
+    <string name="titulo_do_conteudo">Título do Conteúdo</string>
 
 
 </resources>
