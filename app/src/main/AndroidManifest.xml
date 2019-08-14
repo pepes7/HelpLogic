@@ -49,9 +49,6 @@
             android:parentActivityName=".activity.ExercitarLogicaActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ExisteLogicaNoDiaADiaActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activity.NocoesDeLogicaActivity"
             android:parentActivityName=".activity.AprenderLogicaActivity"
             android:screenOrientation="portrait" />
