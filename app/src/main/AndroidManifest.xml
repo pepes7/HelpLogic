@@ -16,7 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.EstatisticaActivity"></activity>
+        <activity android:name=".activity.EstruturaControleActivity"></activity>
+        <activity android:name=".activity.TopicosPreliminaresActivity" />
+        <activity android:name=".activity.ConteudoActivity" />
+        <activity android:name=".activity.EstatisticaActivity" />
         <activity android:name=".activity.FavoritosActivity" />
         <activity android:name=".activity.ExercicioActivity" />
         <activity android:name=".activity.MaisExerciciosActivity" />
@@ -44,18 +47,6 @@
         <activity
             android:name=".activity.ExerciciosLogicaRepeticao"
             android:parentActivityName=".activity.ExercitarLogicaActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.OQueEAlgoritimoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.OQueELogicaDeProgramacaoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.ExisteLogicaNoDiaADiaActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.OQueELogicaActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.NocoesDeLogicaActivity"

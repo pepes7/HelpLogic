@@ -14,7 +14,6 @@ import com.example.helplogic.adapter.AdapterConteudo;
 import com.example.helplogic.config.FirebaseConfig;
 import com.example.helplogic.helper.RecyclerItemClickListener;
 import com.example.helplogic.model.Conteudo;
-import com.example.helplogic.model.Exercicios;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class NocoesDeLogicaActivity extends AppCompatActivity {
+public class TopicosPreliminaresActivity extends AppCompatActivity {
 
     private RecyclerView recyclerConteudos;
     private List<Conteudo> conteudos = new ArrayList<>();
@@ -34,11 +33,11 @@ public class NocoesDeLogicaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nocoes_de_logica);
+        setContentView(R.layout.activity_topicos_preliminares);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Configurações Inciais
-        databaseReference = FirebaseConfig.getFirebaseDatabase().child("conteudo").child("nocoes");
+        databaseReference = FirebaseConfig.getFirebaseDatabase().child("conteudo").child("preliminares");
 
 
         incializarComponentes();
@@ -46,7 +45,7 @@ public class NocoesDeLogicaActivity extends AppCompatActivity {
     }
 
     private void incializarComponentes() {
-        recyclerConteudos = findViewById(R.id.recyclerViewNocoesLogica);
+        recyclerConteudos = findViewById(R.id.recyclerViewTopicosPreliminares);
 
         recyclerConteudos.addOnItemTouchListener(new RecyclerItemClickListener(getApplicationContext(), recyclerConteudos, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
