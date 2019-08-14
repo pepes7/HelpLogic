@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.helplogic.R;
@@ -32,6 +33,7 @@ public class ExercicioLogica extends AppCompatActivity {
     private List<Exercicios> exercicios = new ArrayList<>();
     private AdapterExercicios adapterExercicios;
     private DatabaseReference exerciciosFirebase;
+    private ProgressBar progressImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class ExercicioLogica extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //configurações iniciais
         exerciciosFirebase = FirebaseConfig.getFirebaseDatabase().child("exercicios").child("logica");
+        progressImage = findViewById(R.id.progress_exercicios);
 
         inicializarComponentes();
         recyclerExercicios.setLayoutManager(new LinearLayoutManager(this));
@@ -49,6 +52,8 @@ public class ExercicioLogica extends AppCompatActivity {
         adapterExercicios = new AdapterExercicios(exercicios, this);
 
         recyclerExercicios.setAdapter(adapterExercicios);
+
+        progressImage.setVisibility(View.VISIBLE);
         recuperarExercicios();
     }
 
@@ -96,6 +101,7 @@ public class ExercicioLogica extends AppCompatActivity {
 
                 Collections.reverse(exercicios);
                 adapterExercicios.notifyDataSetChanged();
+                progressImage.setVisibility(View.GONE);
             }
 
             @Override
