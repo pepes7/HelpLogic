@@ -16,6 +16,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    //slider
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -38,6 +43,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:16.0.4'
     implementation 'com.firebaseui:firebase-ui-storage:4.3.1'
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //slider
+    implementation 'com.heinrichreimersoftware:material-intro:1.6'
+
+    //biblioteca para activity sobre
+    implementation 'com.github.medyo:android-about-page:1.2.5'
 }
 
 apply plugin: 'com.google.gms.google-services'

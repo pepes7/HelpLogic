@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ProgressBar;
 
 import com.example.helplogic.R;
 import com.example.helplogic.adapter.AdapterConteudo;
@@ -30,6 +31,7 @@ public class NocoesDeLogicaActivity extends AppCompatActivity {
     private List<Conteudo> conteudos = new ArrayList<>();
     private AdapterConteudo adapterConteudo;
     private DatabaseReference databaseReference;
+    private ProgressBar progressImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,9 @@ public class NocoesDeLogicaActivity extends AppCompatActivity {
 
         // Configurações Inciais
         databaseReference = FirebaseConfig.getFirebaseDatabase().child("conteudo").child("nocoes");
+
+        progressImage = findViewById(R.id.progress_conteudo_logica);
+        progressImage.setVisibility(View.VISIBLE);
 
 
         incializarComponentes();
@@ -89,6 +94,7 @@ public class NocoesDeLogicaActivity extends AppCompatActivity {
 
                 Collections.reverse(conteudos);
                 adapterConteudo.notifyDataSetChanged();
+                progressImage.setVisibility(View.GONE);
             }
 
             @Override

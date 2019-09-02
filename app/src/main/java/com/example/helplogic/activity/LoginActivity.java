@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.helplogic.R;
@@ -29,22 +30,30 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextSenha;
 
     private DialogFragment dialogFragment;
+    private TextView esqueceu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        botaoLogar = findViewById(R.id.botaoLogar);
+        botaoLogar = findViewById(R.id.btn_login);
 
         auth = FirebaseConfig.getFirebaseAuth();
 
         editTextEmail = findViewById(R.id.editTextEmailLogin);
         editTextSenha = findViewById(R.id.editTextSenhaLogin);
+        esqueceu = findViewById(R.id.esqueceu);
 
         botaoLogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 logar();
+            }
+        });
+        esqueceu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), EsqueceuSenhaActivity.class));
             }
         });
 

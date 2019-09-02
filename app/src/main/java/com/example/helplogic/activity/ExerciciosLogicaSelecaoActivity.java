@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ProgressBar;
 
 import com.example.helplogic.R;
 import com.example.helplogic.adapter.AdapterExercicios;
@@ -29,6 +30,7 @@ public class ExerciciosLogicaSelecaoActivity extends AppCompatActivity {
     private List<Exercicios> exercicios = new ArrayList<>();
     private AdapterExercicios adapterExercicios;
     private DatabaseReference exerciciosFirebase;
+    private ProgressBar progressImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +40,17 @@ public class ExerciciosLogicaSelecaoActivity extends AppCompatActivity {
         //coloca o botão de voltar para activity anterior
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         exerciciosFirebase = FirebaseConfig.getFirebaseDatabase().child("exercicios").child("selecao");
+
+        progressImage = findViewById(R.id.progress_selecao);
+
         inicializarComponentes();
         recyclerExercicios.setLayoutManager(new LinearLayoutManager(this));
         recyclerExercicios.hasFixedSize();
         adapterExercicios = new AdapterExercicios(exercicios, this);
 
         recyclerExercicios.setAdapter(adapterExercicios);
+
+        progressImage.setVisibility(View.VISIBLE);
         recuperarExercicios();
     }
 
@@ -92,6 +99,7 @@ public class ExerciciosLogicaSelecaoActivity extends AppCompatActivity {
 
                 Collections.reverse(exercicios);
                 adapterExercicios.notifyDataSetChanged();
+                progressImage.setVisibility(View.GONE);
             }
 
             @Override

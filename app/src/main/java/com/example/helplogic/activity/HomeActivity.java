@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -91,9 +90,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         //logof e volta para tela inicial
         if (id == R.id.action_settings){
             auth.signOut();
-            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            Intent intent = new Intent(HomeActivity.this, SliderActivity.class);
+            finish();
             startActivity(intent);
             return true;
         } else if (id == R.id.action_line_chart) {
@@ -118,9 +116,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_favoritos) {
             startActivity(new Intent(getApplicationContext(), FavoritosActivity.class));
         }
-        /*else if (id == R.id.nav_slideshow) {
+        else if (id == R.id.nav_sobre){
+            startActivity(new Intent(getApplicationContext(), SobreActivity.class));
 
-        } else if (id == R.id.nav_tools) {
+        } /*else if (id == R.id.nav_tools) {
 
         } else if (id == R.id.nav_share) {
 

@@ -16,7 +16,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.EstruturaControleActivity"></activity>
+        <activity
+            android:name=".activity.SobreActivity"
+            android:parentActivityName=".activity.HomeActivity"></activity>
+        <activity android:name=".activity.EsqueceuSenhaActivity" />
+        <activity
+            android:name=".activity.SliderActivity"
+            android:theme="@style/Theme.Intro">
+
+        </activity>
+        <activity android:name=".activity.EstruturaControleActivity" />
         <activity android:name=".activity.TopicosPreliminaresActivity" />
         <activity android:name=".activity.ConteudoActivity" />
         <activity android:name=".activity.EstatisticaActivity" />
@@ -69,9 +78,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.CadastroActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.MainActivity"
             android:screenOrientation="portrait" />
     </application>
 

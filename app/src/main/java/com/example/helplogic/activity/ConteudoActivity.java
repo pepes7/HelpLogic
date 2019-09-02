@@ -37,8 +37,8 @@ public class ConteudoActivity extends AppCompatActivity {
     }
 
     public void iniciaDados() {
-        textViewTexto = findViewById(R.id.textViewTituloConteudo);
-        textViewTitulo = findViewById(R.id.textViewTextoConteudo);
+        textViewTexto = findViewById(R.id.textViewTextoConteudo);
+        textViewTitulo = findViewById(R.id.textViewTituloConteudo);
 
         textViewTexto.setText(conteudo.getTexto());
         textViewTitulo.setText(conteudo.getTitulo());

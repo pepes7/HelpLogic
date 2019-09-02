@@ -32,19 +32,21 @@
         app:layout_constraintTop_toBottomOf="@+id/textView15"
         app:srcCompat="@drawable/cerebro_meditando_feliz" />
 
+
     <ProgressBar
-        android:id="@+id/progress_exercicios_repeticao"
+        android:id="@+id/progress_repeticao"
         style="?android:attr/progressBarStyle"
-        android:layout_width="15dp"
-        android:layout_height="23dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:indeterminate="true"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerExercicios"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerExercicios"
-        app:layout_constraintStart_toStartOf="@+id/recyclerExercicios"
-        app:layout_constraintTop_toTopOf="@+id/recyclerExercicios" />
-
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewRepeticao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/recyclerViewRepeticao"
+        app:layout_constraintTop_toTopOf="@+id/recyclerViewRepeticao" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewRepeticao"
