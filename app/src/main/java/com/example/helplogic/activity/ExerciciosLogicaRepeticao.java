@@ -71,6 +71,7 @@ public class ExerciciosLogicaRepeticao extends AppCompatActivity {
                                 intent.putExtra("favorito", ex.getFavorito());
                                 intent.putExtra("estado", ex.getEstado());
                                 intent.putExtra("id", ex.getId().toString());
+                                intent.putExtra("resposta",ex.getResposta());
 
                                 startActivity(intent);
                             }

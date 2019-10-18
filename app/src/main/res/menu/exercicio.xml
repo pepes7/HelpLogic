@@ -7,4 +7,9 @@
         android:icon="@drawable/ic_favorite_border_white"
         android:title="@string/favorito"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_resposta"
+        android:icon="@drawable/ic_check_circle_black_24dp"
+        android:title="Resposta"
+        app:showAsAction="ifRoom"/>
 </menu>

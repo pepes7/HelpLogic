@@ -7,6 +7,7 @@ public class Exercicios {
     private String estado;
     private String enunciado;
     private String titulo;
+    private String resposta;
 
     public Exercicios(){
 
@@ -50,5 +51,13 @@ public class Exercicios {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public String getResposta() {
+        return resposta;
+    }
+
+    public void setResposta(String resposta) {
+        this.resposta = resposta;
     }
 }

@@ -1,7 +1,9 @@
 package com.example.helplogic.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -55,16 +57,19 @@ public class ExercicioActivity extends AppCompatActivity {
     public void pular(View view) {
         exercicios.setEstado(EstadoExercicio.PULOU.toString());
         respondidos.child(exercicios.getId().toString()).setValue(exercicios);
+        Toast.makeText(this,"Você pulou o exercício",Toast.LENGTH_SHORT).show();
     }
 
     public void acertei(View view) {
         exercicios.setEstado(EstadoExercicio.ACERTOU.toString());
         respondidos.child(exercicios.getId().toString()).setValue(exercicios);
+        Toast.makeText(this,"Parabéns você acertou o exercício",Toast.LENGTH_SHORT).show();
     }
 
     public void errei(View view) {
         exercicios.setEstado(EstadoExercicio.ERROU.toString());
         respondidos.child(exercicios.getId().toString()).setValue(exercicios);
+        Toast.makeText(this,"Você errou o exercício. NÃO DESISTA!!",Toast.LENGTH_LONG).show();
     }
 
     private void iniciaExercicios() {
@@ -75,6 +80,8 @@ public class ExercicioActivity extends AppCompatActivity {
         String favorito = data.getString("favorito");
         String estado = data.getString("estado");
         String id = data.getString("id");
+        String resposta = data.getString("resposta");
+
 
         exercicios = new Exercicios();
         exercicios.setTitulo(titulo);
@@ -82,6 +89,7 @@ public class ExercicioActivity extends AppCompatActivity {
         exercicios.setFavorito(Boolean.parseBoolean(favorito));
         exercicios.setEstado(estado);
         exercicios.setId(Integer.parseInt(id));
+        exercicios.setResposta(resposta);
     }
 
     private void iniciaDados() {
@@ -120,7 +128,13 @@ public class ExercicioActivity extends AppCompatActivity {
 
             }
         });
+        Bundle data = getIntent().getExtras();
+        String resposta = data.getString("resposta");
 
+
+        if(resposta.equals("nao")){
+            menu.getItem(1).setVisible(false);
+        }
 
         return true;
     }
@@ -149,6 +163,11 @@ public class ExercicioActivity extends AppCompatActivity {
             }
         }
 
+        if(id == R.id.action_resposta){
+            mostrarResultado(exercicios.getResposta());
+
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -156,5 +175,20 @@ public class ExercicioActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         this.finish();
         return super.onSupportNavigateUp();
+    }
+
+    public void mostrarResultado(String texto){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Resposta");
+        builder.setMessage(texto);
+        builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
